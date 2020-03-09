@@ -1,0 +1,39 @@
+.Grid {
+    display: flex;
+    flex-wrap: wrap;
+    position: relative;
+    width: 270px;
+    height: 270px;
+    border: 1px solid black;
+    margin: 20px auto;
+}
+
+.Grid .delimiter-h {
+    position: absolute;
+    width: 2px;
+    background: black;
+    height: 100%;
+}
+
+.Grid .delimiter-v {
+    position: absolute;
+    height: 2px;
+    background: black;
+    width: 100%;
+}
+
+.Grid .delimiter-h.h1 {
+    left: 90px;
+}
+
+.Grid .delimiter-h.h2 {
+    left: 180px;
+}
+
+.Grid .delimiter-v.v1 {
+    top: 90px;
+}
+
+.Grid .delimiter-v.v2 {
+    top: 180px;
+}
