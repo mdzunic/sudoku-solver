@@ -17,7 +17,14 @@ function Grid(props: IProps) {
     }
     return (
         <div className="Grid">
-            { cellsKeys.map((cellsKey) => <Cell key={cellsKey} setCellValue={onSetCellValue} index={cellsKey} getCellValue={onGetCellValue(cellsKey)}/>) }
+            { cellsKeys.map((cellsKey) =>
+                <Cell 
+                    key={cellsKey}
+                    setCellValue={onSetCellValue}
+                    index={cellsKey}
+                    getCellValue={onGetCellValue(cellsKey)}
+                />
+            ) }
             <div className="delimiter-h h1"/>
             <div className="delimiter-h h2"/>
             <div className="delimiter-v v1"/>

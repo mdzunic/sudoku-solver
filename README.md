@@ -1,3 +1,10 @@
+## Description
+Simple project for solving sudoku puzzles using backtracking algortihm and react hooks.
+
+## Demo
+https://mdzunic.github.io/sudoku-solver
+
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts

@@ -59,10 +59,6 @@ export const isGivenSudokuValid = (matrix: Matrix) => {
                         if (matrix[n][m]) {
                             boxSubArray.push(matrix[n][m]);
                         }
-                        // if ((m !== i && n !== j) && matrix[n][m] === matrix[i][j]) {
-                        //     console.log("m: ", m, "n: ", n, "i: ", i, "j: ", j);
-                        //     return false;
-                        // }
                     }
                 }
                 boxSubArray.sort((a, b) => a - b);
@@ -90,14 +86,13 @@ export const solveSudokuArray = (array: Array<number>) => {
         }
     }
     if (!isGivenSudokuValid(convertedMatrix)) {
-        console.warn("Invalid Sudoku!", convertedMatrix);
-        return array;
+        // console.warn("Invalid Sudoku!", convertedMatrix);
+        return "Invalid Sudoku!";
     }
     if (solveSudoku(convertedMatrix)) {
         return convertedMatrix.flat();
     } else {
-        console.warn("Not possible!");
-        return [];
+        return "Not possible to solve this sudoku setup!";
     }
 }
 

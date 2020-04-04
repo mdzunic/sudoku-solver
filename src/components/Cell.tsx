@@ -7,7 +7,7 @@ interface IProps {
 }
 
 function Cell(props: IProps) {
-    const [value, setValue] = useState();
+    const [value, setValue] = useState<number | string>();
     const checkInput = (e: ChangeEvent<HTMLInputElement>) => {
         const changedValue = parseInt(e.target.value);
         // console.warn(props.getCellValue)
