@@ -4,32 +4,31 @@ import Grid from "./components/Grid";
 import { SUDOKU_SIZE } from "./utils/consts";
 import { solveSudokuArray } from "./utils/solver";
 
-let finished = false;
+let restartSudoku = false;
+
+const initNewEmptyCells = () => Array(SUDOKU_SIZE * 9);
 
 function App() {
-  let cells: Array<number> = Array(SUDOKU_SIZE * 9);
-  const [value, setValue] = useState(cells);
+  const [value, setValue] = useState(initNewEmptyCells());
   const [buttonLabel, setButtonLabel] = useState("Solve");
-  const [info, setInfo] = useState("");
+  const [info, setInfo] = useState<string>();
 
-  const solveSudoku = () => {
-    if (finished) {
-      cells = Array(SUDOKU_SIZE * 9);
-      setValue(cells);
+  const performAction = () => {
+    if (restartSudoku) {
+      setValue(initNewEmptyCells());
       setButtonLabel("Solve");
       setInfo("");
-      finished = false;
+      restartSudoku = false;
     } else {
       const sudokuValue: number[] | string = solveSudokuArray(value);
       if (Array.isArray(sudokuValue)) {
         setValue(sudokuValue);
         setInfo("");
       } else {
-        setValue(Array(SUDOKU_SIZE * 9));
         setInfo(sudokuValue);
       }
       setButtonLabel("Restart");
-      finished = true;
+      restartSudoku = true;
     }
   };
 
@@ -38,7 +37,9 @@ function App() {
       <header className="App-header">
         <h1>SUDOKU Solver</h1>
       </header>
-  <button className="App-button" onClick={solveSudoku}>{buttonLabel}</button>
+      <button className="App-button" onClick={performAction}>
+        {buttonLabel}
+      </button>
       <Grid cells={value}/>
       <h2 className="App-info">{info}</h2>
     </div>

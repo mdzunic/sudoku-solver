@@ -12,7 +12,6 @@ function Grid(props: IProps) {
         props.cells[index] = typeof cellValue === "string" ? 0 : cellValue;
     }
     const onGetCellValue = (index: number) => {
-        // console.log("onGetCellValue called", props.cells)
         return props.cells[index];
     }
     return (
@@ -22,7 +21,7 @@ function Grid(props: IProps) {
                     key={cellsKey}
                     setCellValue={onSetCellValue}
                     index={cellsKey}
-                    getCellValue={onGetCellValue(cellsKey)}
+                    getCellValue={onGetCellValue}
                 />
             ) }
             <div className="delimiter-h h1"/>
